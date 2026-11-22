@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingreso Contingente DIAT/DIEP | ACHS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-dark bg-primary mb-4">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">← Volver al Inicio</a>
+      <span class="navbar-text text-white fw-bold">Declaración Contingente DIAT/DIEP</span>
+    </div>
+  </nav>
+
+  <div class="container mb-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-white py-3 border-bottom">
+        <h3 class="card-title text-primary m-0 fw-bold">Formulario Individual de Accidentes / Enfermedades</h3>
+        <p class="text-muted small m-0 mt-1">Cumplimiento estricto del plazo de 24 horas (SUSESO - Ley 16.744)</p>
+      </div>
+      <div class="card-body p-4">
+        
+        <form id="diatForm">
+          
+          <!-- Seccion 1: Empresa -->
+          <h5 class="text-secondary border-bottom pb-2">1. Antecedentes de la Empresa</h5>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="rutEmpresa" class="form-label">RUT Empresa Empleadora</label>
+              <input type="text" class="form-control" id="rutEmpresa" placeholder="76.123.456-7" required>
+            </div>
+            <div class="col-md-6">
+              <label for="nombreEmpresa" class="form-label">Nombre o Razón Social</label>
+              <input type="text" class="form-control" id="nombreEmpresa" placeholder="Empresa SpA" required>
+            </div>
+          </div>
+
+          <!-- Seccion 2: Trabajador -->
+          <h5 class="text-secondary border-bottom pb-2">2. Antecedentes del Trabajador</h5>
+          <div class="row g-3 mb-4">
+            <div class="col-md-4">
+              <label for="rutTrabajador" class="form-label">RUT Trabajador</label>
+              <input type="text" class="form-control" id="rutTrabajador" placeholder="19.876.543-2" required>
+            </div>
+            <div class="col-md-5">
+              <label for="nombreTrabajador" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" id="nombreTrabajador" placeholder="Carlos Mendoza Tapia" required>
+            </div>
+            <div class="col-md-3">
+              <label for="cargoTrabajador" class="form-label">Cargo / Función</label>
+              <input type="text" class="form-control" id="cargoTrabajador" placeholder="Operario de Maquinaria" required>
+            </div>
+          </div>
+
+          <!-- Seccion 3: Siniestro -->
+          <h5 class="text-secondary border-bottom pb-2">3. Datos del Siniestro</h5>
+          <div class="row g-3 mb-4">
+            <div class="col-md-4">
+              <label for="tipoDenuncia" class="form-label">Tipo de Siniestro</label>
+              <select class="form-select" id="tipoDenuncia" required>
+                <option value="DIAT" selected>Accidente del Trabajo (DIAT)</option>
+                <option value="DIEP">Enfermedad Profesional (DIEP)</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="fechaSiniestro" class="form-label">Fecha y Hora del Accidente</label>
+              <input type="datetime-local" class="form-control" id="fechaSiniestro" required>
+            </div>
+            <div class="col-md-4">
+              <label for="lugarSiniestro" class="form-label">Lugar Exacto</label>
+              <input type="text" class="form-control" id="lugarSiniestro" placeholder="Planta Industrial, Sector Rampa B" required>
+            </div>
+            <div class="col-12">
+              <label for="descripcionSiniestro" class="form-label">Descripción Detallada de los Hechos</label>
+              <textarea class="form-control" id="descripcionSiniestro" rows="3" placeholder="Describa qué estaba haciendo el trabajador y cómo ocurrió el accidente..." required></textarea>
+            </div>
+          </div>
+
+          <!-- Estado de persistencia y sincronización -->
+          <div id="mensajeDiat" class="alert d-none" role="alert"></div>
+          <div class="small text-muted mb-3">
+            <strong>Persistencia:</strong> <span id="detallePersistencia">Inicializando...</span>
+            &nbsp;·&nbsp; <strong>Pendientes:</strong>
+            <span id="contadorPendientes" class="badge bg-warning text-dark">0</span>
+          </div>
+
+          <!-- Botones de Accion -->
+          <div class="d-flex justify-content-end gap-2 border-top pt-3">
+            <a href="index.html" class="btn btn-outline-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary px-4 fw-bold" id="btnGuardar">Registrar Denuncia Contingente</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Para Firebase real, define window.FIREBASE_CONFIG antes de cargar app_diat.js -->
+  <script type="module" src="js/firebase_config.js"></script>
+  <script type="module" src="js/app_diat.js"></script>
+</body>
+</html>

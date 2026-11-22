@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ACHS Contingencia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <!-- Navbar del Dashboard -->
+    <nav class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'inicio' %}">ACHS | Módulo de Contingencia</a>
+            <div class="d-flex align-items-center gap-3">
+                <a href="{% url 'inicio' %}" class="btn btn-outline-light btn-sm">Ir al Inicio</a>
+                <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="container mt-5">
+        <div class="p-5 mb-4 bg-white rounded-4 shadow-sm border">
+            <div class="container-fluid py-3">
+                <h1 class="display-5 fw-bold text-dark">¡Bienvenido, {{ usuario.username }}!</h1>
+                <p class="col-md-8 fs-5 text-muted">Has ingresado exitosamente al sistema de gestión de denuncias DIAT/DIEP y subsidios de la ACHS.</p>
+                <hr class="my-4">
+                
+                <!-- Botones de Acción Rápida -->
+                <h5 class="fw-bold mb-3 text-secondary">Acciones Disponibles:</h5>
+                <div class="d-grid gap-2 d-md-flex">
+                    <a href="{% url 'inicio' %}" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Ir al Formulario DIAT/DIEP</a>
+                    <a href="{% url 'inicio' %}" class="btn btn-outline-secondary btn-lg px-4">Consultar Subsidios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

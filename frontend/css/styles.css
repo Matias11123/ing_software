@@ -1,0 +1,19 @@
+/* Estilos personalizados ACHS */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #495057;
+}

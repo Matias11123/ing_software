@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Subsidios | ACHS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-dark bg-primary mb-4">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">← Volver al Inicio</a>
+      <span class="navbar-text text-white fw-bold">Consulta de Subsidios · Ley N° 16.744</span>
+    </div>
+  </nav>
+
+  <div class="container mb-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
+        <h3 class="card-title text-primary m-0 fw-bold">Estado de Trámites de Subsidio</h3>
+        <span id="estadoRed" class="badge bg-secondary">Consultando red...</span>
+      </div>
+      <div class="card-body p-4">
+
+        <form id="formSubsidio" class="row g-3 align-items-end mb-4">
+          <div class="col-md-6">
+            <label for="rutSubsidio" class="form-label">RUT del Trabajador</label>
+            <input type="text" class="form-control" id="rutSubsidio" placeholder="Ej.: 19.876.543-2" required>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100 fw-bold" id="btnConsultar">Consultar</button>
+          </div>
+        </form>
+
+        <div id="mensajeSubsidio" class="alert d-none" role="alert"></div>
+        <small id="detalleRed" class="text-muted d-block mb-3"></small>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-light">
+              <tr>
+                <th>ID Trámite</th>
+                <th>Estado</th>
+                <th>Monto estimado</th>
+              </tr>
+            </thead>
+            <tbody id="cuerpoSubsidios">
+              <tr><td colspan="3" class="text-center text-muted">Ingrese un RUT para consultar.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app_subsidio.js"></script>
+  <script type="module" src="js/app_red.js"></script>
+</body>
+</html>
