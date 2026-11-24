@@ -1,6 +1,18 @@
 # models.py - Módulo ACHS Contingencia (Actualizado con Clases de Usuarios)
+
+
 from django.db import models
 
+class UsuarioApp(models.Model):
+    username = models.CharField(max_length=50, unique=True)
+    email = models.EmailField(unique=True)
+    password_hash = models.CharField(max_length=255)
+    intentos_fallidos = models.IntegerField(default=0)
+    bloqueado = models.BooleanField(default=False)
+    fecha_registro = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.username} ({'Bloqueado' if self.bloqueado else 'Activo'})"
 class Usuario(models.Model):
     rut = models.CharField(max_length=12, unique=True)
     nombre = models.CharField(max_length=100)
